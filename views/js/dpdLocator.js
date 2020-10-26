@@ -37,7 +37,7 @@ jQuery(document).ready(function (){
             });
         }
 
-        jQuery("#page").on('change', '.delivery_option_radio', function () {
+        jQuery("#order-opc").on('change', '.delivery_option_radio', function () {
             if (jQuery(this).prop("checked")) {
                 if (this.value == parcelshopId + ',') {
 
@@ -51,7 +51,7 @@ jQuery(document).ready(function (){
             }
         });
 
-        jQuery("#page").on("click", ".ParcelShops", function () {
+        jQuery("#order-opc").on("click", ".ParcelShops", function () {
             jQuery.post(baseUri + '?fc=module&module=dpdconnect&controller=OneStepParcelshop', {
                 'method': 'setParcelShop',
                 'parcelId' : this.id,
