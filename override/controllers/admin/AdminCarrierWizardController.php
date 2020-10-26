@@ -179,7 +179,7 @@ class AdminCarrierWizardController extends AdminCarrierWizardControllerCore
             $tpl_vars['zones'] = Zone::getZones(false);
             $carrier_zones = $carrier->getZones();
             $carrier_zones_ids = [];
-            if (is_[$carrier_zones]) {
+            if (is_array($carrier_zones)) {
                 foreach ($carrier_zones as $carrier_zone) {
                     $carrier_zones_ids[] = $carrier_zone['id_zone'];
                 }
