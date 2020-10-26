@@ -75,18 +75,21 @@ class dpdconnect extends Module
 
         // Install Tabs
         $parent_tab = new Tab();
-
-        $parent_tab->name[$this->context->language->id] = $this->l('DPD configuration');
         $parent_tab->class_name = 'AdminDpd';
         $parent_tab->id_parent = 0; // Home tab
         $parent_tab->module = $this->name;
+        foreach(Language::getLanguages(false) as $lang) {
+            $parent_tab->name[(int) $lang['id_lang']] = $this->l('DPD configuration');
+        }
         $parent_tab->add();
-        $tab = new Tab();
 
-        $tab->name[$this->context->language->id] = $this->l('DPD Product Attributes');
+        $tab = new Tab();
         $tab->class_name = 'AdminDpdProductAttributes';
         $tab->id_parent = $parent_tab->id;
         $tab->module = $this->name;
+        foreach(Language::getLanguages(false) as $lang) {
+            $tab->name[(int) $lang['id_lang']] = $this->l('DPD Product Attributes');
+        }
         $tab->add();
 
         if (!$this->dpdHelper->installDB()) {
